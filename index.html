@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Climate Change Data Analysis Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js library for drawing charts (needs internet) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <h1>🌍 Climate Change Data Analysis</h1>
+    <p>Global temperature, CO₂ and Arctic sea ice from 1980 to 2023</p>
+  </header>
+
+  <main>
+    <!-- Year filter -->
+    <section class="filter">
+      <label>From:
+        <select id="startYear"></select>
+      </label>
+      <label>To:
+        <select id="endYear"></select>
+      </label>
+      <button id="resetBtn">Reset</button>
+    </section>
+
+    <!-- Summary cards -->
+    <section class="cards">
+      <div class="card"><h3>Temp. Change</h3><p id="cardTemp">-</p><small>°C (start → end)</small></div>
+      <div class="card"><h3>CO₂ Increase</h3><p id="cardCo2">-</p><small>ppm (start → end)</small></div>
+      <div class="card"><h3>Sea Ice Change</h3><p id="cardIce">-</p><small>million km² (start → end)</small></div>
+      <div class="card"><h3>Correlation</h3><p id="cardCorr">-</p><small>CO₂ vs Temperature</small></div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts">
+      <div class="chart-box"><h2>Temperature Anomaly (with trend line)</h2><canvas id="tempChart"></canvas></div>
+      <div class="chart-box"><h2>CO₂ Concentration (ppm)</h2><canvas id="co2Chart"></canvas></div>
+      <div class="chart-box"><h2>Average Temperature by Decade</h2><canvas id="decadeChart"></canvas></div>
+      <div class="chart-box"><h2>CO₂ vs Temperature (scatter)</h2><canvas id="scatterChart"></canvas></div>
+      <div class="chart-box wide"><h2>Arctic Sea Ice Extent (September)</h2><canvas id="iceChart"></canvas></div>
+    </section>
+
+    <!-- Findings text -->
+    <section class="insights">
+      <h2>📝 Key Findings</h2>
+      <ul id="findings"></ul>
+      <p class="note">Temperature anomaly = difference from the 1951–1980 average. Data values are rounded and based on NASA GISTEMP, NOAA Mauna Loa and NSIDC public data.</p>
+    </section>
+  </main>
+
+  <footer>Data Science Mini Project – Climate Change Analysis</footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
